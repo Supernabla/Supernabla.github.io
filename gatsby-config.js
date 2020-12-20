@@ -1,5 +1,5 @@
 const path = require("path");
-const { title, keywords, description, author, defaultLang, trackingId } = require("./config/site");
+const { title, keywords, description, author, defaultLang } = require("./config/site");
 
 module.exports = {
   siteMetadata: {
@@ -10,21 +10,16 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: "gatsby-plugin-google-analytics",
-      options: {
-        trackingId,
-      },
-    },
-    {
       resolve: "gatsby-plugin-manifest",
       options: {
         name: title,
-        short_name: "Agency",
+        short_name: "Portfolio",
         start_url: "/",
         background_color: "#ffffff",
         theme_color: "#fed136",
         display: "minimal-ui",
         icon: "content/assets/gatsby-icon.png",
+        include_favicon: false,
       },
     },
     "gatsby-transformer-remark",
@@ -68,12 +63,12 @@ module.exports = {
             file: "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap",
           },
           {
-            name: "Kaushan Script",
-            file: "https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap",
-          },
-          {
             name: "Roboto Slab",
             file: "https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap",
+          },
+          {
+            name: "Open Sans",
+            file: "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap",
           },
         ],
       },

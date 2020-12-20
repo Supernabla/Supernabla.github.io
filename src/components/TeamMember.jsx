@@ -31,8 +31,8 @@ const TeamMember = ({
       <div>
         {twitterPart}
         {facebookPart}
-        {linkedinPart}
         {githubPart}
+        {linkedinPart}
         {mediumPart}
       </div>
     </div>

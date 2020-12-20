@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 
 import { Modal, Button } from "react-bootstrap";
 import Image from "components/Image";
-import Icon from "./Icon";
+
+import "./PortfolioDetailDialog.scss";
 
 const PortfolioDetailDialog = ({
   onHide,
@@ -12,7 +13,8 @@ const PortfolioDetailDialog = ({
   header,
   subheader,
   content,
-  extraInfo,
+  visitLinkText,
+  visitLinkHref,
   ...restProps
 }) => {
   return (
@@ -24,23 +26,23 @@ const PortfolioDetailDialog = ({
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">{header}</Modal.Title>
+        <Modal.Title className="portfoliodetaildialog-title" id="contained-modal-title-vcenter">
+          {header}
+        </Modal.Title>
       </Modal.Header>
       <Modal.Body className="mx-auto">
-        <p className="item-intro text-muted">{subheader}</p>
+        <p className="portfoliodetaildialog-subtitle item-intro text-muted">{subheader}</p>
         <Image
-          className="img-fluid d-block"
+          className="mb-3 img-fluid d-block border"
           fileName={imageFileName}
           alt={imageAlt || header || subheader}
         />
-        <p>{content}</p>
-        {extraInfo}
+        <p className="text-muted">{content}</p>
       </Modal.Body>
       <Modal.Footer>
         <div className="mx-auto">
-          <Button variant="primary" onClick={onHide}>
-            <Icon iconName="CloseIcon" />
-            &nbsp; Close Project
+          <Button variant="primary" href={visitLinkHref}>
+            {visitLinkText}
           </Button>
         </div>
       </Modal.Footer>
@@ -55,7 +57,8 @@ PortfolioDetailDialog.propTypes = {
   header: PropTypes.string,
   subheader: PropTypes.string,
   content: PropTypes.string,
-  extraInfo: PropTypes.any,
+  visitLinkText: PropTypes.string,
+  visitLinkHref: PropTypes.string,
 };
 
 PortfolioDetailDialog.defaultProps = {
@@ -65,7 +68,8 @@ PortfolioDetailDialog.defaultProps = {
   header: "",
   subheader: "",
   content: "",
-  extraInfo: null,
+  visitLinkText: "",
+  visitLinkHref: "",
 };
 
 export default PortfolioDetailDialog;

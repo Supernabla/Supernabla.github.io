@@ -1,4 +1,4 @@
 ---
 brand: "Simon Kirchhof"
-menuText: "Menu"
+menuText: "Menü"
 ---

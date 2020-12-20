@@ -1,5 +1,5 @@
 module.exports = {
-  title: "Gatsyby Startbootstrap Agency",
+  title: "Simon Kirchhof",
   keywords: [
     "gatsby",
     "gatsbyjs",
@@ -10,12 +10,11 @@ module.exports = {
     "bootstrap",
     "startbootstrap-agency",
   ],
-  description: "gatsby version of startbootstrap-agency with i18n support.",
-  author: "thundermiracle",
-  trackingId: "UA-119418003-5",
+  description: "Learn more about me, my work and my projects.",
+  author: "Supernabla",
   defaultLang: "en",
   langTextMap: {
     en: "English",
-    ja: "日本語",
+    de: "Deutsch",
   },
 };

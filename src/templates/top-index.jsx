@@ -26,6 +26,7 @@ export const query = graphql`
         description
       }
     }
+
     allMarkdownRemark(
       filter: { fields: { langKey: { eq: $langKey } } }
       sort: { order: ASC, fields: [fields___directoryName, fields___fileName] }
@@ -34,28 +35,25 @@ export const query = graphql`
         frontmatter {
           brand
           anchor
-          clients {
-            href
-            imageFileName
-          }
           content
           copyright
+          gatsbyText
+          gatsbyLinkText
+          gatsbyLinkHref
           header
-          email
           imageFileName
           jumpToAnchor
           jumpToAnchorText
           menuText
           portfolios {
             content
-            extraInfo
+            visitLinkText
+            visitLinkHref
             header
             subheader
             imageFileNameDetail
             imageFileName
           }
-          privacyHref
-          privacyText
           services {
             content
             header
@@ -82,18 +80,15 @@ export const query = graphql`
             }
             subheader
           }
-          telephone
-          termsHref
-          termsText
+          themeText
+          themeLinkText
+          themeLinkHref
           title
-          timeline {
-            content
-            header
-            imageContent
-            imageFileName
-            subheader
-          }
+          unsplashText
+          unsplashLinkText
+          unsplashLinkHref
         }
+        html
         fields {
           fileName
           directoryName
@@ -122,7 +117,7 @@ const IndexPage = ({ data, pathContext: { langKey, defaultLang, langTextMap } })
 
   return (
     <>
-      <SEO lang={langKey} title="Top" keywords={keywords} description={description} />
+      <SEO lang={langKey} title="About Me" keywords={keywords} description={description} />
       <Navbar
         anchors={anchors}
         frontmatter={navBarNode.frontmatter}
@@ -131,7 +126,7 @@ const IndexPage = ({ data, pathContext: { langKey, defaultLang, langTextMap } })
       <Top frontmatter={topNode.frontmatter} />
       {
         // dynamically import sections
-        sectionsNodes.map(({ frontmatter, fields: { fileName } }, ind) => {
+        sectionsNodes.map(({ frontmatter, html, fields: { fileName } }, ind) => {
           const sectionComponentName = fileNameToSectionName(fileName);
           const SectionComponent = Sections[sectionComponentName];
 
@@ -140,6 +135,7 @@ const IndexPage = ({ data, pathContext: { langKey, defaultLang, langTextMap } })
               key={sectionComponentName}
               className={ind % 2 === 1 ? "bg-light" : null}
               frontmatter={frontmatter}
+              html={html}
             />
           ) : null;
         })

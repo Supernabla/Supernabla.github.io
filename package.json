@@ -1,11 +1,8 @@
 {
-  "name": "gatsby-startbootstrap-agency",
-  "description": "gatsby version of startbootstrap-agency with i18n support",
+  "name": "supernabla.github.io",
+  "description": "My personal homepage",
   "version": "0.1.0",
-  "author": "thundermiracle",
-  "bugs": {
-    "url": "https://github.com/thundermiracle/gatsby-startbootstrap-agency/issues"
-  },
+  "author": "Supernabla",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
     "@fortawesome/free-brands-svg-icons": "^5.13.0",
@@ -59,7 +56,7 @@
     "gatsby-plugin-eslint": "^2.0.8",
     "prettier": "^2.0.4"
   },
-  "homepage": "https://thundermiracle.github.io/gatsby-startbootstrap-agency",
+  "homepage": "https://supernabla.github.io",
   "keywords": [
     "gatsby",
     "gatsbyjs",
@@ -74,7 +71,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thundermiracle/gatsby-startbootstrap-agency.git"
+    "url": "git+https://github.com/Supernabla/Supernabla.github.io.git"
   },
   "scripts": {
     "clean": "gatsby clean",

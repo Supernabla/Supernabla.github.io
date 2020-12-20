@@ -4,13 +4,13 @@ social: {
   github: "Supernabla",
   linkedin: "simon-kirchhof",
 }
-gatsbyText: "Proudly powered by "
+gatsbyText: "Gebaut mit "
 gatsbyLinkText: "Gatsby"
 gatsbyLinkHref: "https://www.gatsbyjs.com/"
-themeText: "Theme based on "
+themeText: "Design basiert auf "
 themeLinkText: "startbootstrap-agency"
 themeLinkHref: "https://github.com/thundermiracle/gatsby-startbootstrap-agency"
-unsplashText: "Banner image by "
+unsplashText: "Banner-Image von "
 unsplashLinkText: "Ramón Salinero"
 unsplashLinkHref: "https://unsplash.com/photos/vEE00Hx5d0Q"
 ---
