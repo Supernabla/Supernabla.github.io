@@ -13,10 +13,10 @@ module.exports = {
       resolve: "gatsby-plugin-manifest",
       options: {
         name: title,
-        short_name: "Portfolio",
+        short_name: "About Me",
         start_url: "/",
         background_color: "#ffffff",
-        theme_color: "#fed136",
+        theme_color: "#368dfe",
         display: "minimal-ui",
         icon: "content/assets/gatsby-icon.png",
         include_favicon: false,
