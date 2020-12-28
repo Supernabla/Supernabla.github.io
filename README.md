@@ -11,7 +11,6 @@ Apart from the React and Gatsby ecosystems, it makes use of other external softw
 * [React Helmet](https://github.com/nfl/react-helmet)
 * [React Scroll](https://github.com/fisshy/react-scroll)
 * [clsx](https://github.com/lukeed/clsx)
-* [ramda](https://ramdajs.com/)
 * [throttle-debounce](https://github.com/niksy/throttle-debounce)
 
 ## Licensing

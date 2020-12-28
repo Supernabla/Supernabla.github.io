@@ -1,0 +1,9 @@
+.projectitemdetaildialog-title {
+  font-weight: bolder;
+  @include heading-font;
+}
+
+.projectitemdetaildialog-subtitle {
+  font-style: italic;
+  @include serif-font;
+}

@@ -1,0 +1,39 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["react", "react-hooks", "@typescript-eslint"],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "worker": true
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-module": {
+        "root": ["./"]
+      },
+      "node": {
+        "extensions": [".ts", ".tsx"],
+        "moduleDirectory": ["node_modules", "src", ".gatsby"]
+      }
+    }
+  },
+  "rules": {
+    "import/extensions": [1, { "ts": "never", "tsx": "never" }],
+    "jsx-a11y/click-events-have-key-events": "off",
+    "no-use-before-define": "off", // note you must disable the base rule as it can report incorrect errors
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+    "react/jsx-props-no-spreading": "off"
+  },
+  "extends": [
+    "airbnb",
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/typescript",
+    "plugin:import/warnings",
+    "plugin:react/recommended",
+    "prettier",
+    "prettier/react"
+  ]
+}

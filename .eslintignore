@@ -1,6 +1,14 @@
-# /node_modules/* and /bower_components/* ignored by default
+# /node_modules/* and /bower_components/* are ignored by default
 
 # ignore  settings
 .vscode/*
 
+# ignore build artifacts
+.cache/*
 public/*
+
+# do not lint gatsby-config dummy ...
+gatsby-config.js
+
+# ... do lint the real config files
+!/.gatsby

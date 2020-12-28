@@ -2,7 +2,7 @@
 copyright: "Copyright © Simon Kirchhof 2020"
 social: {
   github: "Supernabla",
-  linkedin: "simon-kirchhof",
+  linkedin: "simon-kirchhof"
 }
 gatsbyText: "Proudly powered by "
 gatsbyLinkText: "Gatsby"

@@ -25,17 +25,27 @@
     "gatsby-transformer-remark": "^2.6.34",
     "gatsby-transformer-sharp": "^2.4.4",
     "node-sass": "^4.13.1",
-    "prop-types": "^15.7.2",
-    "ramda": "^0.27.0",
+    "ramda": "^0.27.1",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.0",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
     "react-scroll": "^1.7.16",
-    "throttle-debounce": "^2.1.0"
+    "throttle-debounce": "^2.1.0",
+    "typescript": "^4.1.3"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@types/node": "^14.14.16",
+    "@types/react": "^17.0.0",
+    "@types/react-bootstrap": "^0.32.25",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-fontawesome": "^1.6.4",
+    "@types/react-helmet": "^6.1.0",
+    "@types/react-scroll": "^1.8.2",
+    "@types/throttle-debounce": "^2.1.0",
+    "@typescript-eslint/eslint-plugin": "^4.11.0",
+    "@typescript-eslint/parser": "^4.11.0",
     "babel-eslint": "^10.1.0",
     "babel-plugin-import": "^1.13.0",
     "babel-plugin-module-resolver": "^4.0.0",
@@ -54,10 +64,11 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^3.0.0",
     "gatsby-plugin-eslint": "^2.0.8",
+    "gatsby-plugin-ts-config": "^1.1.5",
     "gh-pages": "^3.1.0",
     "prettier": "^2.0.4"
   },
-  "homepage": "https://supernabla.github.io",
+  "homepage": "https://github.com/Supernabla/Supernabla.github.io/tree/gatsby",
   "keywords": [
     "gatsby",
     "gatsbyjs",
@@ -69,7 +80,6 @@
     "startbootstrap-agency"
   ],
   "license": "MIT",
-  "main": "n/a",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Supernabla/Supernabla.github.io.git"
@@ -79,9 +89,9 @@
     "build": "gatsby build",
     "dev": "gatsby develop",
     "deploy": "gatsby build && gh-pages -d public -b main",
-    "format": "prettier --write src/**/*.{js,jsx}",
+    "format": "prettier --write src/**/*.{js,jsx,ts,tsx}",
     "serve": "gatsby serve",
-    "eslint": "eslint ./src",
+    "eslint": "eslint src/**/*.ts src/**/*.tsx",
     "test": "cross-env NODE_ENV=test yarn run eslint",
     "testbuild": "yarn test && yarn build"
   }

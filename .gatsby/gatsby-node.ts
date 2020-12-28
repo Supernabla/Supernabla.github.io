@@ -1,0 +1,104 @@
+import path from "path";
+import { defaultLang, helmetTextMap, langTextMap } from "./languages";
+import getBaseUrl from "../src/utils/getBaseUrl";
+
+/**
+ * add fileName to node for markdown files
+ */
+exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions;
+
+  if (node.internal.type === "MarkdownRemark") {
+    const fileName = path.basename(node.fileAbsolutePath, ".md");
+    createNodeField({
+      node,
+      name: "fileName",
+      value: fileName,
+    });
+
+    createNodeField({
+      node,
+      name: "directoryName",
+      value: path.basename(path.dirname(node.fileAbsolutePath)),
+    });
+  }
+};
+
+/**
+ * define nullable items
+ */
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = [
+    "type MarkdownRemark implements Node { frontmatter: Frontmatter }",
+    `type Frontmatter {
+      anchor: String
+      jumpToAnchor: String
+      jumpToAnchorText: String
+      social: Social
+      services: [Service]
+      profileImage: ProfileImage
+    }`,
+    `type ProfileImage {
+      social: Social
+    }`,
+    `type Service {
+      iconName: String
+      imageFileName: String
+      header: String
+      content: String
+    }`,
+    `
+    type Social {
+      twitter: String
+      facebook: String
+      linkedin: String
+      medium: String
+      github: String
+    }
+    `,
+  ];
+
+  createTypes(typeDefs);
+};
+
+/**
+ * generate i18n top pages
+ */
+exports.createPages = ({ graphql, actions: { createPage } }) => {
+  const topIndex = path.resolve("./src/templates/top-index.tsx");
+
+  return new Promise((resolve, reject) => {
+    resolve(
+      graphql(
+        `
+          {
+            allMarkdownRemark {
+              distinct(field: fields___langKey)
+            }
+          }
+        `,
+      ).then(({ errors, data }) => {
+        if (errors) {
+          console.log(errors); // eslint-disable-line no-console
+          reject(errors);
+        }
+
+        data.allMarkdownRemark.distinct.forEach((langKey) => {
+          createPage({
+            path: getBaseUrl(defaultLang, langKey),
+            component: topIndex,
+            context: {
+              defaultLang,
+              helmetText: helmetTextMap[langKey],
+              langKey,
+              langTextMap,
+            },
+          });
+        });
+
+        return null;
+      }),
+    );
+  });
+};
